@@ -3,7 +3,7 @@
 #
 FROM lwieske/java-8:server-jre-8u102-slim
 
-MAINTAINER Exzeo Devops Team <devops@exzeo.com>
+MAINTAINER Vadi <vadivtk@gmail.com>
 
 ENV SBT_VERSION 0.13.12
 ENV SCALA_VERSION 2.11.8
