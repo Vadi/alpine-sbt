@@ -33,5 +33,6 @@ RUN cd /root && \
     curl -sL sbt-$SBT_VERSION.tgz http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz | gunzip | tar -x -C $SBT_HOME && \
     cp -rf $SBT_HOME/sbt/bin/ $SBT_HOME/bin/ && \
     cp -rf $SBT_HOME/sbt/conf/ $SBT_HOME/conf/ && \
+    rm bt-$SBT_VERSION.tgz && \
     rm -rf $SBT_HOME/sbt && \
     echo -ne "- with sbt $SBT_VERSION\n" >> /root/.built
