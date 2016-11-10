@@ -21,13 +21,13 @@ RUN cd /tmp                                                              && \
     export JAVA_URL="http://download.oracle.com/otn-pub/java/jdk/8u${JAVA_UPDATE}-b${JAVA_BUILD}" && \
     export JAVA_TGZ="${JAVA_PACKAGE}-8u${JAVA_UPDATE}-linux-x64.tar.gz"  && \
     export JAVA_HOME="/usr/lib/jvm/default-jvm"                          && \
-    wget -q ${GLIBC_URL}/${GLIBC_APK}                                    && \
-    wget -q ${GLIBC_URL}/${GLIBC_BIN_APK}                                && \
+    wget ${GLIBC_URL}/${GLIBC_APK}                                    && \
+    wget ${GLIBC_URL}/${GLIBC_BIN_APK}                                && \
     apk add --no-cache --allow-untrusted ${GLIBC_APK}                    && \
     apk add --no-cache --allow-untrusted ${GLIBC_BIN_APK}                && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
     mkdir -p /usr/lib/jvm                                                && \
-    wget -qO- --header "Cookie: oraclelicense=accept-securebackup-cookie;" ${JAVA_URL}/${JAVA_TGZ} | tar -xzf -  && \
+    wget -O- --header "Cookie: oraclelicense=accept-securebackup-cookie;" ${JAVA_URL}/${JAVA_TGZ} | tar -xzf -  && \
     if [ ${JAVA_PACKAGE} = "server-jre" ]; then mv jdk*/jre /usr/lib/jvm/java-8-oracle; else mv j* /usr/lib/jvm/java-8-oracle; fi && \
     ln -s java-8-oracle $JAVA_HOME                                       && \
     rm -rf $JAVA_HOME/*src.zip                                           && \
@@ -90,7 +90,6 @@ RUN cd /tmp                                                              && \
             ${JAVA_HOME}/*/*/deploy* \
             ${JAVA_HOME}/*/*/desktop \
             ${JAVA_HOME}/*/*/ext/jfxrt.jar \
-#            ${JAVA_HOME}/*/*/ext/nashorn.jar \
             ${JAVA_HOME}/*/*/javaws.jar \
             ${JAVA_HOME}/*/*/jfr \
             ${JAVA_HOME}/*/*/jfr \
