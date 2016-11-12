@@ -6,7 +6,7 @@
 # your project depends. Currencly, nashorn is not removed.
 
 # FROM lwieske/java-8:server-jre-8u102
-FROM java
+FROM alpine
 
 MAINTAINER Vadi <vadivtk@gmail.com>
 
