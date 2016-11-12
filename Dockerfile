@@ -22,7 +22,7 @@ ENV JAVA_TGZ "${JAVA_PACKAGE}-8u${JAVA_UPDATE}-linux-x64.tar.gz"
 ENV JAVA_HOME "/usr/lib/jvm/default-jvm"
 
 RUN cd /tmp
-RUN apk add --no-cache --virtual=build-dependencies ca-certificates wget
+RUN apk add --no-cache --virtual=build-dependencies ca-certificates wget curl
 RUN wget ${GLIBC_URL}/${GLIBC_APK}
 RUN wget ${GLIBC_URL}/${GLIBC_BIN_APK}
 RUN apk add --no-cache --allow-untrusted ${GLIBC_APK}
@@ -105,10 +105,6 @@ RUN rm -rf \
     ${JAVA_HOME}/*/plugin \
     ${JAVA_HOME}/*.txt
 
-RUN apk del build-dependencies
-RUN ln -s $JAVA_HOME/bin/* /usr/bin/
-RUN rm -rf /tmp/*
-
 ENV JAVA_HOME=/usr/lib/jvm/default-jvm/ \
     PATH=${PATH}:/usr/lib/jvm/default-jvm/bin
 
@@ -139,3 +135,7 @@ RUN cd /root && \
     rm -rf sbt-$SBT_VERSION.tgz && \
     rm -rf $SBT_HOME/sbt && \
     echo -ne "- with sbt $SBT_VERSION\n" >> /root/.built
+
+RUN apk del build-dependencies
+RUN ln -s $JAVA_HOME/bin/* /usr/bin/
+RUN rm -rf /tmp/*
