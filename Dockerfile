@@ -12,8 +12,8 @@ MAINTAINER Vadi <vadivtk@gmail.com>
 
 ENV GLIBC_VERSION "2.23-r3"
 ENV JAVA_PACKAGE "jdk"
-ENV JAVA_UPDATE "112"
-ENV JAVA_BUILD "15"
+ENV JAVA_UPDATE "121"
+ENV JAVA_BUILD "13"
 ENV GLIBC_URL "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}"
 ENV GLIBC_APK "glibc-${GLIBC_VERSION}.apk"
 ENV GLIBC_BIN_APK "glibc-bin-${GLIBC_VERSION}.apk"
@@ -108,8 +108,8 @@ RUN rm -rf \
 ENV JAVA_HOME=/usr/lib/jvm/default-jvm/ \
     PATH=${PATH}:/usr/lib/jvm/default-jvm/bin
 
-ENV SBT_VERSION 0.13.12
-ENV SCALA_VERSION 2.11.8
+ENV SBT_VERSION 0.13.13
+ENV SCALA_VERSION 2.12.1
 
 ENV DEPS_HOME /opt/deps
 ENV SBT_HOME ${DEPS_HOME}/sbt-${SBT_VERSION}
