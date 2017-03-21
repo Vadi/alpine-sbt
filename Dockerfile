@@ -18,7 +18,7 @@ ENV JAVA_BUILD "13"
 ENV GLIBC_URL "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}"
 ENV GLIBC_APK "glibc-${GLIBC_VERSION}.apk"
 ENV GLIBC_BIN_APK "glibc-bin-${GLIBC_VERSION}.apk"
-ENV JAVA_URL "http://download.oracle.com/otn-pub/java/jdk/8u${JAVA_UPDATE}-b${JAVA_BUILD}"
+ENV JAVA_URL "http://download.oracle.com/otn-pub/java/jdk/8u${JAVA_UPDATE}-b${JAVA_BUILD}/e9e7ea248e2c4826b92b3f075a80e441/"
 ENV JAVA_TGZ "${JAVA_PACKAGE}-8u${JAVA_UPDATE}-linux-x64.tar.gz"
 ENV JAVA_HOME "/usr/lib/jvm/default-jvm"
 ENV SBT_VERSION 0.13.13
